@@ -6,26 +6,51 @@ adj = [
     [ 0, 0, 0, 1, 0 ]  
 ]
 
+adj = [
+    [0, 1, 1, 0, 0, 0, 1],
+    [1, 0, 1, 1, 0, 0, 0],
+    [1, 1, 0, 0, 1, 0, 0],
+    [0, 1, 0, 0, 1, 1, 0],
+    [0, 0, 1, 1, 0, 0, 1],
+    [0, 0, 0, 1, 0, 0, 1],
+    [1, 0, 0, 0, 1, 1, 0]
+]
+
+adj = [
+    [0, 1, 0, 1, 0, 1],  # A
+    [1, 0, 1, 1, 0, 0],  # B
+    [0, 1, 0, 0, 1, 0],  # C
+    [1, 1, 0, 0, 1, 0],  # D
+    [0, 0, 1, 1, 0, 1],  # E
+    [1, 0, 0, 0, 1, 0]   # F
+]
+
+
+
+
 
 colors = [1,2,3,4]
 
-results = {"A":1,"B":1,"C":1,"D":1,"E":1}
+
 mapps = {}
-letters= "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
 
 for s,i in enumerate(adj):
-	key = letters[s]
+	key = f"Region_{s}"
 	mapps[key] = []
 	for k,x in enumerate(i):
 		if x == 1:
-			border = letters[k]
+			border = f"Region_{k}"
 			mapps[key].append(border)
 
-count=0
-print(mapps)
+results = {}
 for key, value in mapps.items():
-	print(value)
+	results[key] = 1
+
+
+
+count=0
+for key, value in mapps.items():
 	for i in value:
 		if results[key] == results[i]:
 			try:
@@ -34,7 +59,7 @@ for key, value in mapps.items():
 			except IndexError:
 				count=0
 				results[key] = colors[count]
-
+print(mapps)
 print(results)
 
 
