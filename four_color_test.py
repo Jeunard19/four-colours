@@ -22,7 +22,7 @@ class Test(unittest.TestCase):
     def test_create_initial_results_dict(self):
         bording_region_dict={'Region_0': {}, 'Region_1': {}, 'Region_2': {}, 'Region_3': {}, 'Region_4': {}}
         initial_results_dict = four_color.create_initial_results_dict(bording_region_dict)
-        self.assertEqual(initial_results_dict, {'Region_0': 1, 'Region_1': 1, 'Region_2': 1, 'Region_3': 1, 'Region_4': 1}, 'All initial region values should be 1')
+        self.assertEqual(initial_results_dict, {'Region_0': 0, 'Region_1': 0, 'Region_2': 0, 'Region_3': 0, 'Region_4': 0}, 'All initial region values should be 0')
         
     def test_allocate_color(self):
         bording_region_dict={'Region_0': {'Region_3', 'Region_2', 'Region_1'}, 'Region_1': {'Region_2', 'Region_0'}, 'Region_2': {'Region_3', 'Region_1', 'Region_0'},
