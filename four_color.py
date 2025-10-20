@@ -25,15 +25,14 @@ def allocate_color(bording_region_dict, results_dict, minimize=False):
 			for region in non_bording_regions:
 				if results_dict[key] != results_dict[region]:
 					results_dict[key]=results_dict[region]
-		
-		for i in value:
-			if results_dict[key] == results_dict[i]:
-				try:
-					count+=1
-					results_dict[key] = colors[count]
-				except IndexError:
-					count=0
-					results_dict[key] = colors[count]
+		border_color = {results_dict[i] for i in value}
+		while results_dict[key] in border_color:
+			try:
+				count+=1
+				results_dict[key] = colors[count]
+			except IndexError:
+				count=0
+				results_dict[key] = colors[count]
 
 
 def create_connected_node_network(bording_region_dict, results_dict):
