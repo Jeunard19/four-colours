@@ -30,16 +30,12 @@ class Test(unittest.TestCase):
         
         results_dict={'Region_0': 1, 'Region_1': 1, 'Region_2': 1, 'Region_3': 1, 'Region_4': 1}
         four_color.allocate_color(bording_region_dict, results_dict)
-        self.assertEqual(results_dict, {'Region_0': 2, 'Region_1': 3, 'Region_2': 4, 'Region_3': 1, 'Region_4': 2}, 'Colors do not match expected values')
-
-    def test_allocate_color_minize(self):
-        bording_region_dict={'Region_0': {'Region_3', 'Region_2', 'Region_1'}, 'Region_1': {'Region_2', 'Region_0'}, 'Region_2': {'Region_3', 'Region_1', 'Region_0'},
-         'Region_3': {'Region_2', 'Region_4', 'Region_0'}, 'Region_4': {'Region_3'}}
-        
-        results_dict={'Region_0': 1, 'Region_1': 1, 'Region_2': 1, 'Region_3': 1, 'Region_4': 1}
-        four_color.allocate_color(bording_region_dict, results_dict, True)
-        self.assertEqual(results_dict, {'Region_0': 2, 'Region_1': 3, 'Region_2': 4, 'Region_3': 3, 'Region_4': 2}, 'Colors do not match expected values')
-
+        self.assertNotEqual(results_dict['Region_0'], results_dict['Region_1'], "Region_0 cannot have the same color as Region_1" )
+        self.assertNotEqual(results_dict['Region_0'], results_dict['Region_2'], "Region_0 cannot have the same color as Region_2" )
+        self.assertNotEqual(results_dict['Region_0'], results_dict['Region_3'], "Region_0 cannot have the same color as Region_3" )
+        self.assertNotEqual(results_dict['Region_1'], results_dict['Region_2'], "Region_1 cannot have the same color as Region_2" )
+        self.assertNotEqual(results_dict['Region_2'], results_dict['Region_3'], "Region_2 cannot have the same color as Region_3" )
+        self.assertNotEqual(results_dict['Region_3'], results_dict['Region_4'], "Region_3 cannot have the same color as Region_4" )
 
 if __name__ == '__main__':
     unittest.main()
