@@ -1,7 +1,6 @@
 #!/usr/bin/venv python3
 from pyvis.network import Network
 
-
 def create_bording_region_dict(adj):
 	bording_region_dict= {}
 	for s,i in enumerate(adj):
