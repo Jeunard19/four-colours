@@ -16,7 +16,6 @@ def create_initial_results_dict(bording_region_dict):
 
 def allocate_color(bording_region_dict, results_dict):
 	colors = [1,2,3,4]
-	count=0
 	regions = set(bording_region_dict.keys())
 	for key, value in bording_region_dict.items():
 		count=0
